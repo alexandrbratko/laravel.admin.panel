@@ -26,7 +26,12 @@
         },
         "classmap": [
             "database/factories/",
-            "database/seeders/"
+            "database/seeders/",
+            "app/SBlog/Core"
+        ],
+        "files" : [
+            "config/init.php",
+            "config/params.php"
         ]
     },
     "autoload-dev": {
