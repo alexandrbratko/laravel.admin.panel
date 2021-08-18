@@ -16,3 +16,22 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Auth::routes();
+
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+/* Admin side **/
+
+// Before entering the admin panel, the middleware will check for status and authentication
+Route::group(['middleware' => ['status', 'auth']], function() {
+
+    $groupData = [
+        'namespace' => 'Blog\Admin', // Namespace from Controllers Blog/Admin
+        'prefix' => 'admin' // prefix for route
+    ];
+
+    Route::group($groupData, function() {
+        Route::resource('index', 'MainController')->names('blog.admin.index');
+    });
+});
