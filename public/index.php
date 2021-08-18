@@ -54,6 +54,7 @@ $response = tap($kernel->handle(
 
 $kernel->terminate($request, $response);
 
+
 require_once __DIR__ . '/../config/init.php';
 require_once __DIR__ . '/../config/params.php';
-require_once  \App\SBlog\Core\BlogApp();
+//require_once  \App\SBlog\Core\BlogApp;
